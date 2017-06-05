@@ -1,0 +1,24 @@
+{
+    "name": "npm-list-linked",
+    "version": "0.0.1",
+    "description": "List linked npm packages in a project; also recursively for chains of dependencies.",
+    "bin": "npm-list-linked.js",
+    "scripts": {
+        "lint": "eslint .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "npm",
+        "link",
+        "cli"
+    ],
+    "author": "Kristoffer Lundén <kristoffer.lunden@gmail.com>",
+    "license": "ISC",
+    "dependencies": {
+        "fs-extra": "^3.0.1",
+        "glob": "^7.1.2"
+    },
+    "devDependencies": {
+        "eslint": "^3.19.0"
+    }
+}
