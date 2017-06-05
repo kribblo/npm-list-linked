@@ -1,6 +1,6 @@
 {
     "name": "npm-list-linked",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "List linked npm packages in a project; also recursively for chains of dependencies.",
     "bin": "npm-list-linked.js",
     "scripts": {

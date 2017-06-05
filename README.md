@@ -7,10 +7,21 @@ List linked npm packages in a project; also recursively for chains of dependenci
         @prefix/package 0.2.7
             other-package 0.1.2
     
-## Install
+## Use globally
 
     npm i -g npm-list-linked
-
-## Usage
-
     npm-list-linked [path to project root, default cwd]
+
+## Use in a project
+
+    npm i --save-dev npm-list-linked
+
+**package.json:**
+
+    "scripts": {
+        "linked": "npm-list-linked"
+    }
+
+Run script:
+
+    npm run linked
