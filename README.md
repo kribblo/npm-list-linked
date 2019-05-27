@@ -25,3 +25,8 @@ List linked npm packages in a project; also recursively for chains of dependenci
 Run script:
 
     npm run linked
+
+## Using as a module
+
+    const {getLinked} = require('npm-list-linked');
+    console.log(getLinked());

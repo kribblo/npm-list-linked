@@ -2,21 +2,11 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const glob = require('glob');
-
-function getLinked(cwd) {
-    return glob.sync('{@*/*,[^@]*}/', {cwd})
-        .map(match => match.slice(0, -1))
-        .filter(file => {
-            const stat = fs.lstatSync(path.join(cwd, file));
-            return stat.isSymbolicLink();
-        });
-}
+const {getLinked} = require('./get-linked');
 
 function printLinked(cwd, level = 1) {
-    const modules = path.join(cwd, 'node_modules');
     const indentation = ' '.repeat(level * 4);
-    const linked = getLinked(modules);
+    const linked = getLinked();
 
     if(level === 1) {
         if(linked.length > 0) {
