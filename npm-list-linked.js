@@ -4,6 +4,8 @@ const fs = require('fs-extra');
 const path = require('path');
 const {getLinked} = require('./get-linked');
 
+const NODE_MODULES = 'node_modules';
+
 function printLinked(cwd, level = 1) {
     const indentation = ' '.repeat(level * 4);
     const linked = getLinked();
@@ -17,9 +19,9 @@ function printLinked(cwd, level = 1) {
     }
 
     linked.forEach(link => {
-        const version = fs.readJsonSync(path.join(modules, link, 'package.json')).version;
+        const version = fs.readJsonSync(path.join(NODE_MODULES, link, 'package.json')).version;
         console.log(indentation + link, version);
-        printLinked(path.join(modules, link), level + 1);
+        printLinked(path.join(NODE_MODULES, link), level + 1);
     });
 }
 
