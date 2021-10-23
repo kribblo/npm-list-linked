@@ -7,7 +7,7 @@ const {getLinked} = require('./get-linked');
 const NODE_MODULES = 'node_modules';
 
 function printLinked(cwd, level = 1) {
-    const indentation = ' '.repeat(level * 4);
+    const indentation = '⎯'.repeat(level * 2) + '⇢';
     const linked = getLinked(path.join(cwd, NODE_MODULES));
 
     if(level === 1) {
@@ -20,7 +20,7 @@ function printLinked(cwd, level = 1) {
 
     linked.forEach(link => {
         const version = fs.readJsonSync(path.join(NODE_MODULES, link, 'package.json')).version;
-        console.log(indentation + link, version);
+        console.log(indentation + link, '@' + version);
         printLinked(path.join(NODE_MODULES, link), level + 1);
     });
 }
