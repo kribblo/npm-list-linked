@@ -7,7 +7,7 @@ const {getLinked} = require('./get-linked');
 const NODE_MODULES = 'node_modules';
 
 function printLinked(cwd, level = 1) {
-    const indentation = ' ' + '—'.repeat(level * 4) + '→ ';
+    const indentation = ' '.repeat(level - 1 * 4) + '—'.repeat(2) + '⌲ ';
     const linked = getLinked(path.join(cwd, NODE_MODULES));
 
     if(level === 1) {
