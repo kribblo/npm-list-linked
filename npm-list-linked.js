@@ -8,7 +8,7 @@ const NODE_MODULES = 'node_modules';
 
 function printLinked(cwd, level = 1) {
     const indentation = ' '.repeat(level * 4);
-    const linked = getLinked(cwd);
+    const linked = getLinked(path.join(cwd, NODE_MODULES));
 
     if(level === 1) {
         if(linked.length > 0) {
